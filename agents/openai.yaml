@@ -1,0 +1,7 @@
+interface:
+  display_name: "GitHub Repo Adoption"
+  short_description: "Audit metadata and README paths for useful first use"
+  default_prompt: "Use $github-repo-adoption to audit this repository and propose or apply the smallest evidence-backed improvements."
+
+policy:
+  allow_implicit_invocation: true
