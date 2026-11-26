@@ -15,16 +15,16 @@ cd github-repo-adoption
 skill_root="${CODEX_HOME:-$HOME/.codex}/skills"
 mkdir -p "$skill_root"
 skill_link="$skill_root/github-repo-adoption"
-if test -e "$skill_link" || test -L "$skill_link"; then
+if [ -e "$skill_link" ] || [ -L "$skill_link" ]; then
   printf 'Refusing to replace existing %s\n' "$skill_link" >&2
   exit 1
 fi
-ln -sT -- "$PWD" "$skill_link"
+ln -s -- "$PWD" "$skill_link"
 ```
 
-The command uses GNU `ln -sT` on Linux and refuses to replace an existing file or
-link. Use the equivalent no-clobber symlink command on another host, then start a
-new Codex task so the local skill catalog can refresh.
+The command works on Linux and macOS and refuses to replace an existing file or
+symlink (including a dangling symlink). Start a new Codex task after installation
+so the local skill catalog can refresh.
 
 ## Usage
 
